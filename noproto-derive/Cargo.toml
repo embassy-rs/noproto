@@ -1,0 +1,15 @@
+[package]
+name = "noproto-derive"
+version = "0.1.0"
+license = "Apache-2.0"
+edition = "2021"
+
+[lib]
+proc_macro = true
+
+[dependencies]
+anyhow = "1.0.1"
+itertools = { version = "0.10", default-features = false, features = ["use_alloc"] }
+proc-macro2 = "1"
+quote = "1"
+syn = { version = "1.0.3", features = [ "extra-traits" ] }
