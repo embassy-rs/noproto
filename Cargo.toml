@@ -9,5 +9,5 @@ default = ["derive"]
 derive = ["dep:noproto-derive"]
 
 [dependencies]
-heapless = "0.7.16"
+heapless = "0.8"
 noproto-derive = { version = "0.1.0", path = "noproto-derive", optional = true }
