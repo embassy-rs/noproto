@@ -75,7 +75,14 @@ impl<'a> ByteReader<'a> {
         let mut shift = 0;
         loop {
             let x = self.read_u8()?;
-            res |= (x as u32 & 0x7F) << shift;
+
+            // avoid shift overflow if the varuint is more than 32bit.
+            // this happpens in practice: negative int32's are encoded as 64bit two's complement
+            // (in nanopb at least, I haven't checked other impls.)
+            if shift < 32 {
+                res |= (x as u32 & 0x7F) << shift;
+            }
+
             if x & 0x80 == 0 {
                 break;
             }
@@ -96,7 +103,12 @@ impl<'a> ByteReader<'a> {
         let mut shift = 0;
         loop {
             let x = self.read_u8()?;
-            res |= (x as u64 & 0x7F) << shift;
+
+            // avoid shift overflow if the varuint is more than 64bit.
+            if shift < 64 {
+                res |= (x as u64 & 0x7F) << shift;
+            }
+
             if x & 0x80 == 0 {
                 break;
             }
