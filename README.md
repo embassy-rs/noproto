@@ -3,7 +3,8 @@
 No-`std`, no-`alloc` protocol buffers (protobuf) implementation in Rust, for embedded systems.
 Optimized for binary size and memory usage, not for performance.
 
-Status: **very experimental** :radioactive: 
+Status: **very experimental,** :radioactive: do not use in production yet. In particular, it doesn't
+handle many protobuf types well (see below).
 
 ## Features
 
@@ -18,8 +19,11 @@ Implemented:
 
 Not implemented (yet?):
 
+- Support multiple protobuf encodings. Protobuf "types" are more like "type + wire encoding" all in one,
+  so one Rust type can be encoded multiple ways on the wire. `noproto` currently assumes the Rust type is enough
+  to deduce how it should be encoded on the wire, which is not true.
+- Support more types (see below)
 - Impls for `alloc` containers (goal is to be `no-alloc`, but we could still have them optionally).
-- Some types (see below)
 - Impls for `&[T]` for repeated fields (only doable for writing, not reading)
 - Tool to compile `.proto` files into Rust code.
 - Maps

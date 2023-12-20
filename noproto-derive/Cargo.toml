@@ -3,6 +3,15 @@ name = "noproto-derive"
 version = "0.1.0"
 license = "MIT OR Apache-2.0"
 edition = "2021"
+description = "Derive macros for the `noproto` crate. Do not use this crate directly."
+repository = "https://github.com/embassy-rs/noproto"
+categories = [
+    "embedded",
+    "no-std",
+    "network-programming",
+    "encoding",
+]
+keywords = ["protobuf", "serialization"]
 
 [lib]
 proc_macro = true

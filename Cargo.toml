@@ -3,6 +3,15 @@ name = "noproto"
 version = "0.1.0"
 license = "MIT OR Apache-2.0"
 edition = "2021"
+description = "no-std, no-alloc protocol buffers implementation for embedded systems."
+repository = "https://github.com/embassy-rs/noproto"
+categories = [
+    "embedded",
+    "no-std",
+    "network-programming",
+    "encoding",
+]
+keywords = ["protobuf", "serialization"]
 
 [features]
 default = ["derive"]
