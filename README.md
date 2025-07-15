@@ -1,3 +1,7 @@
+# ⚠️ ARCHIVED
+
+Will not be developed further. Use https://github.com/YuhanLiin/micropb which does everything I was hoping this to do, and more.
+
 # noproto
 
 No-`std`, no-`alloc` protocol buffers (protobuf) implementation in Rust, for embedded systems.
